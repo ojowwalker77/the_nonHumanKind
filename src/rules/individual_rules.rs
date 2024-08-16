@@ -7,19 +7,24 @@ pub struct IndividualRules {
 }
 
 impl IndividualRules {
+    pub fn apply(&self, individual: &mut Individual, map: &mut Map) {
+
+        individual.update();
+
+        if individual.needs_food() {
+            self.search_for_food(individual, map);
+        }
+
+        individual.eat(map);
+    }
+
     pub fn new() -> Self {
         IndividualRules {
             movement_rules: MovementRules,
         }
     }
 
-    pub fn apply(&self, individual: &mut Individual, map: &Map) {
-        individual.update();
 
-        if individual.needs_food() {
-            self.search_for_food(individual, map);
-        }
-    }
 
     fn search_for_food(&self, individual: &mut Individual, map: &Map) {
         let directions = [

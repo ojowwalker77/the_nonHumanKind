@@ -5,17 +5,16 @@ pub use self::tile::{Tile, TerrainType};
 pub use self::coordinate::Coordinate;
 use std::vec;
 
-
+use crate::vegetation::VegetationSystem;
 
 pub struct Map {
     pub width: usize,
     pub height: usize,
     tiles: Vec<Vec<Tile>>,
+    pub vegetation: VegetationSystem,
 }
 
 impl Map {
-
-
 
     pub fn width(&self) -> usize {
         self.width
@@ -26,11 +25,9 @@ impl Map {
     }
 
     pub fn new(width: usize, height: usize) -> Self {
-        let mut tiles = Vec::with_capacity(height);
-        for _ in 0..height {
-            tiles.push(vec![Tile::default(); width]);
-        }
-        Map { width, height, tiles }
+        let tiles = vec![vec![Tile::default(); width]; height];
+        let vegetation = VegetationSystem::new();
+        Map { width, height, tiles, vegetation }
     }
 
     pub fn get_tile(&self, coord: &Coordinate) -> Option<&Tile> {
@@ -50,7 +47,6 @@ impl Map {
     }
 
     pub fn update(&mut self) {
-        // For now, this method is empty
-        // In the future, it could update the state of each tile
+        self.vegetation.update();
     }
 }

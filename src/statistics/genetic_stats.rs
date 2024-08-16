@@ -19,7 +19,7 @@ impl GeneticStats {
         self.average_genetic_traits.clear();
 
         for individual in individuals {
-            for (i, gene) in individual.dna.chars().enumerate() {
+            for (i, _gene) in individual.dna.chars().enumerate() {
                 *self.gene_frequencies.entry(format!("Gene_{}", i)).or_insert(0) += 1;
             }
 

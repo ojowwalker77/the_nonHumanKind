@@ -1,11 +1,23 @@
-use the_nonhumankind::map::{Map, Coordinate};
+use the_nonhumankind::map::{Coordinate, Map};
 use the_nonhumankind::entities::Individual;
 use the_nonhumankind::rules::{IndividualRules, MapRules};
-use the_nonhumankind::utils::{save_simulation_state, load_simulation_state};
 use the_nonhumankind::statistics::SimulationStats;
+use the_nonhumankind::vegetation::{VegetationType, Grass, FruitTree};
+use the_nonhumankind::utils::{save_simulation_state, load_simulation_state};
 
 fn main() {
     let mut map = Map::new(20, 20);
+
+    for x in 0..20 {
+        for y in 0..20 {
+            if (x + y) % 5 == 0 {
+                map.vegetation.add_plant(Coordinate::new(x, y), VegetationType::FruitTree(FruitTree::new()));
+            } else if (x + y) % 2 == 0 {
+                map.vegetation.add_plant(Coordinate::new(x, y), VegetationType::Grass(Grass::new()));
+            }
+        }
+    }
+
     let mut individuals = vec![
         Individual::new(1, Coordinate::new(5, 5), "5678123456".to_string()).unwrap(),
         Individual::new(2, Coordinate::new(15, 15), "6789234567".to_string()).unwrap(),
@@ -24,7 +36,7 @@ fn main() {
 
         for individual in individuals.iter_mut() {
             let old_position = individual.position;
-            individual_rules.apply(individual, &map);
+            individual_rules.apply(individual, &mut map);
             println!("  Individual {}: position: {:?} -> {:?}, Energy: {}, HP: {}",
                      individual.id, old_position, individual.position, individual.energy, individual.hp);
         }

@@ -1,5 +1,6 @@
 use crate::map::Coordinate;
 use crate::entities::Genetics;
+use crate::map::Map;
 
 pub struct Individual {
     pub id: u64,
@@ -37,6 +38,16 @@ impl Individual {
 
     pub fn needs_food(&self) -> bool {
         self.energy < self.genetics.energy_capacity * 6 / 10
+    }
+
+
+    pub fn eat(&mut self, map: &mut Map) {
+        if let Some(plant) = map.vegetation.get_plant_at(&self.position) {
+            if plant.can_be_eaten() {
+                let energy_gained = plant.eat();
+                self.energy = (self.energy + energy_gained).min(self.genetics.energy_capacity);
+            }
+        }
     }
 
     pub fn to_state_string(&self) -> String {

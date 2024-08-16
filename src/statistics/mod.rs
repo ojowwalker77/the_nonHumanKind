@@ -23,12 +23,12 @@ impl SimulationStats {
             genetic_stats: GeneticStats::new(),
         }
     }
-
     pub fn update(&mut self, individuals: &[Individual], map: &Map) {
         self.update_individual_stats(individuals);
         self.population_stats.update(individuals);
         self.genetic_stats.update(individuals);
     }
+
 
     fn update_individual_stats(&mut self, individuals: &[Individual]) {
         for individual in individuals {
