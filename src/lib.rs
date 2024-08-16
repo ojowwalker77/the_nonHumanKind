@@ -5,3 +5,4 @@ pub mod vegetation;
 pub mod plugins;
 pub mod logger;
 pub mod utils;
+pub mod statistics;
