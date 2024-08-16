@@ -1,0 +1,12 @@
+[package]
+name = "the_nonhumankind"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fastrand = "1.9.0"
+
+
+[[example]]
+name = "basic_simulation"
+path = "examples/basic_simulation.rs"
