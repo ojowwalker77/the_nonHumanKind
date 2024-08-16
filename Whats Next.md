@@ -1,3 +1,4 @@
+
 # What's Next for The NonHumankind Simulation
 
 This document outlines the planned improvements and future developments for The NonHumankind simulation project. Our goal is to create a more realistic, accurate, and performant simulation while expanding its scope and complexity.
