@@ -32,7 +32,7 @@ impl Plant for FruitTree {
     fn eat(&mut self) -> u32 {
         if self.fruits > 0 {
             self.fruits -= 1;
-            50
+            50 // Fruit trees provide more energy than grass
         } else {
             0
         }

@@ -1,6 +1,6 @@
 use std::ops::{Add, Sub};
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub struct Coordinate {
     pub x: usize,
     pub y: usize,
@@ -11,6 +11,7 @@ impl Coordinate {
         Coordinate { x, y }
     }
 }
+
 
 impl Add for Coordinate {
     type Output = Self;

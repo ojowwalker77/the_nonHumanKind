@@ -1,12 +1,13 @@
-mod plant;
-mod grass;
-mod fruit_tree;
+//mod.rs:
+use crate::map::Coordinate;
+
+pub mod plant;
+pub mod grass;
+pub mod fruit_tree;
 
 pub use plant::Plant;
 pub use grass::Grass;
 pub use fruit_tree::FruitTree;
-
-use crate::map::Coordinate;
 
 pub enum VegetationType {
     Grass(Grass),
@@ -40,6 +41,7 @@ pub struct VegetationSystem {
     pub plants: Vec<(Coordinate, VegetationType)>,
 }
 
+
 impl VegetationSystem {
     pub fn new() -> Self {
         VegetationSystem { plants: Vec::new() }
@@ -55,10 +57,30 @@ impl VegetationSystem {
         }
     }
 
-    pub fn get_plant_at(&mut self, coordinate: &Coordinate) -> Option<&mut VegetationType> {
+
+    pub fn plant_count(&self) -> usize {
+        self.plants.len()
+    }
+
+    pub fn get_plant_at(&self, coordinate: &Coordinate) -> Option<&VegetationType> {
         self.plants
-            .iter_mut()
+            .iter()
             .find(|(pos, _)| pos == coordinate)
             .map(|(_, plant)| plant)
+    }
+
+    pub fn eat_plant_at(&mut self, coordinate: &Coordinate) -> Option<u32> {
+        if let Some((_, plant)) = self.plants
+            .iter_mut()
+            .find(|(pos, _)| pos == coordinate)
+        {
+            if plant.can_be_eaten() {
+                Some(plant.eat())
+            } else {
+                None
+            }
+        } else {
+            None
+        }
     }
 }

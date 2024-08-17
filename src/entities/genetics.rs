@@ -16,14 +16,14 @@ impl Genetics {
         }
 
         Ok(Genetics {
-            hp_capacity: dna[0..1].parse::<u32>().unwrap() * 10,
-            energy_capacity: dna[1..2].parse::<u32>().unwrap() * 10,
-            movement_speed: dna[2..3].parse::<u32>().unwrap(),
-            natural_energy_loss: dna[3..5].parse::<u32>().unwrap(),
-            active_energy_loss: dna[5..7].parse::<u32>().unwrap(),
-            food_efficiency: dna[7..8].parse::<u32>().unwrap(),
-            reproduction_rate: dna[8..9].parse::<u32>().unwrap(),
-            mutation_rate: dna[9..10].parse::<u32>().unwrap(),
+            hp_capacity: dna[0..1].parse::<u32>().unwrap() * 20 + 50, // 50-230
+            energy_capacity: dna[1..2].parse::<u32>().unwrap() * 30 + 50, // 50-320
+            movement_speed: dna[2..3].parse::<u32>().unwrap() + 1, // 1-10
+            natural_energy_loss: dna[3..5].parse::<u32>().unwrap() / 5 + 1, // 1-20
+            active_energy_loss: dna[5..7].parse::<u32>().unwrap() / 2 + 5, // 5-54
+            food_efficiency: dna[7..8].parse::<u32>().unwrap() * 2 + 1, // 1-19
+            reproduction_rate: dna[8..9].parse::<u32>().unwrap(), // 0-9
+            mutation_rate: dna[9..10].parse::<u32>().unwrap(), // 0-9
         })
     }
 }

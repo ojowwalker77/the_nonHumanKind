@@ -8,7 +8,7 @@ pub struct Grass {
 impl Grass {
     pub fn new() -> Self {
         Grass {
-            energy: 1,
+            energy: 10,
             growth_rate: 1,
         }
     }

@@ -1,0 +1,96 @@
+Turn: 10
+Population: 80
+Average Energy: 171.12
+Average HP: 137.35
+Total Food Consumed: 306
+Total Distance Moved: 314
+Vegetation Count: 2452
+
+Turn: 20
+Population: 126
+Average Energy: 178.20
+Average HP: 137.11
+Total Food Consumed: 743
+Total Distance Moved: 767
+Vegetation Count: 2452
+
+Turn: 30
+Population: 207
+Average Energy: 172.83
+Average HP: 130.62
+Total Food Consumed: 1342
+Total Distance Moved: 1483
+Vegetation Count: 2452
+
+Turn: 40
+Population: 356
+Average Energy: 163.43
+Average HP: 132.12
+Total Food Consumed: 2215
+Total Distance Moved: 2649
+Vegetation Count: 2452
+
+Turn: 50
+Population: 641
+Average Energy: 159.03
+Average HP: 135.32
+Total Food Consumed: 3272
+Total Distance Moved: 4537
+Vegetation Count: 2452
+
+Turn: 60
+Population: 1104
+Average Energy: 152.95
+Average HP: 133.85
+Total Food Consumed: 4778
+Total Distance Moved: 7830
+Vegetation Count: 2452
+
+Turn: 70
+Population: 1856
+Average Energy: 149.68
+Average HP: 135.76
+Total Food Consumed: 6917
+Total Distance Moved: 13276
+Vegetation Count: 2452
+
+Turn: 80
+Population: 3219
+Average Energy: 149.02
+Average HP: 136.10
+Total Food Consumed: 9652
+Total Distance Moved: 22745
+Vegetation Count: 2452
+
+Turn: 90
+Population: 5408
+Average Energy: 148.08
+Average HP: 134.18
+Total Food Consumed: 13296
+Total Distance Moved: 38048
+Vegetation Count: 2452
+
+Turn: 100
+Population: 9291
+Average Energy: 149.42
+Average HP: 133.90
+Total Food Consumed: 17791
+Total Distance Moved: 63365
+Vegetation Count: 2452
+
+Turn: 110
+Population: 15916
+Average Energy: 148.29
+Average HP: 132.29
+Total Food Consumed: 23200
+Total Distance Moved: 103427
+Vegetation Count: 2452
+
+Turn: 120
+Population: 27635
+Average Energy: 148.30
+Average HP: 131.09
+Total Food Consumed: 29052
+Total Distance Moved: 165723
+Vegetation Count: 2452
+

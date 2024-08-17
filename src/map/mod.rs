@@ -3,7 +3,6 @@ mod coordinate;
 
 pub use self::tile::{Tile, TerrainType};
 pub use self::coordinate::Coordinate;
-use std::vec;
 
 use crate::vegetation::VegetationSystem;
 
@@ -23,6 +22,12 @@ impl Map {
     pub fn height(&self) -> usize {
         self.height
     }
+
+
+    pub fn is_valid_position(&self, coord: &Coordinate) -> bool {
+        coord.x < self.width && coord.y < self.height
+    }
+
 
     pub fn new(width: usize, height: usize) -> Self {
         let tiles = vec![vec![Tile::default(); width]; height];
@@ -44,6 +49,10 @@ impl Map {
         } else {
             None
         }
+    }
+
+    pub fn eat_plant_at(&mut self, coordinate: &Coordinate) -> Option<u32> {
+        self.vegetation.eat_plant_at(coordinate)
     }
 
     pub fn update(&mut self) {
